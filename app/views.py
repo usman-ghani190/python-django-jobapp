@@ -22,14 +22,14 @@ job_descriptions = [
 # def hello(request):
 #     return HttpResponse("<h1>Hello World</h1>")
 
-def hello(request):
-    # template = loader.get_template('app/hello.html')
-    l = ["aslam", "khan", "sir"]
-    is_authenticated = True
-    context = {"name": "Django", "first_list": l, "age": 14, "is_authenticated": is_authenticated}
-    # return HttpResponse(template.render(context, request))
-    # render(request-object, template, context)
-    return render(request, "app/hello.html", context)
+# def hello(request):
+#     # template = loader.get_template('app/hello.html')
+#     l = ["aslam", "khan", "sir"]
+#     is_authenticated = True
+#     context = {"name": "Django", "first_list": l, "age": 14, "is_authenticated": is_authenticated}
+#     # return HttpResponse(template.render(context, request))
+#     # render(request-object, template, context)
+#     return render(request, "app/hello.html", context)
 
 
 
