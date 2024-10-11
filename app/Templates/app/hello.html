@@ -1,0 +1,19 @@
+<h1>Hello {{name}}</h1>
+
+<h2>{{first_list.0}}</h2>
+
+<h2>{{first_list.1}}</h2>
+
+<h3>the user age is: {{age}}</h3>
+
+{%if is_authenticated%}
+    <h1>Hello django</h1>
+{%endif%}
+
+{%for i in first_list%}
+    <p>first: {{i}}</p>
+{% endfor %}
+
+{% comment %} Filters {% endcomment %}
+
+{{first_list|length}}
