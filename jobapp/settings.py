@@ -12,16 +12,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-# import django_heroku
-# import dj_database_url
-# from whitenoise import WhiteNoise
+
+
 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# django_heroku.settings(locals())
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'subscribe.apps.SubscribeConfig',
     'uploadapp.apps.UploadappConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +145,38 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_CUSTOM_DOMAIN= '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+
+AWS_S3_FILE_OVERWRITE = False
+
+STORAGES = {
+
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}
+
+
+
+
+
+
+
+
+
+
+
+
